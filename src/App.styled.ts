@@ -1,74 +1,107 @@
-import styled, {createGlobalStyle} from 'styled-components'
-// import {Z_INDEX_LEVEL_1, HEADER_HEIGHt} from 'const'
-import {FOOTER_HEIGHT, HEADER_HEIGHT} from "const";
-import colors from "const/colors";
+import styled, { createGlobalStyle } from 'styled-components'
+
+import { HEADER_HEIGHT, FOOTER_HEIGHT } from 'const'
+import colors from 'const/colors'
+
+
+//
+// Global tags styling
+//
 
 export const AppStyles = createGlobalStyle`
-    body{
+    body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         margin: 0;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 14px;
         font-style: normal;
         font-weight: normal;
-        color: #5E5873;   
+        color: #5e5873;
         min-width: 320px;
     }
-    
+
     *,
     *:before,
-    *:after{
+    *:after {
         box-sizing: border-box;
     }
-    
-    a{
-        color:inherit;
+
+    a {
+        color: inherit;
         text-decoration: inherit;
         color: ${colors.primary};
     }
 
-    ul,li{
+    ul, li {
         list-style: none;
-    }    
-    
-    img{
+    }
+
+    img {
         display: block;
         max-width: 100%;
         height: auto;
     }
+
+    tr,
+    td,
+    th,
+    p,
+    button,
+    ul,
+    li,
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, .h1 {
+        font-size: 26px;
+    }
+
+    h2, .h2 {
+        font-size: 22px;
+    }
+
+    h3, .h3 {
+        font-size: 18px;
+    }
+
+    h4, .h4 {
+        font-size: 16px;
+    }
+
+    p, li {
+        line-height: 21px;
+    }
 `
+
+
+//
+// Global app styled components
+//
 
 export const PageWrapper = styled.div`
     padding: 20px;
-    min-height: calc(100vh - ${FOOTER_HEIGHT}px - ${HEADER_HEIGHT}px);
+    min-height: calc(100vh - ${HEADER_HEIGHT}px - ${FOOTER_HEIGHT}px);
 `
 
-export const ProductGroup = styled.div`
-    margin-top: 20px;
-    
-    > :first-child{
-        margin-bottom: 10px;
-    }
-`
-export const ProductGroupContainer = styled.div`
+export const MainWrapper = styled.div`
+    height: 100vh;
     display: flex;
-    flex-wrap: wrap;
-    
-    >  *{
-        width: 16.6666%;
-        margin-bottom: 20px;
-    }
-`
-export const Footer = styled.div`
-    padding: 10px 20px;
-    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    background-color: ${colors.primary};
-    height:  ${FOOTER_HEIGHT};
-    color: #fff;
-    
-    > :last-child{
-        cursor: pointer;
-    }
+`
+
+export const Footer = styled.div`
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: ${colors.primary};
+  color: #fff;
+  height: ${FOOTER_HEIGHT};
+
+  > :last-child {
+    cursor: pointer;
+  }
 `

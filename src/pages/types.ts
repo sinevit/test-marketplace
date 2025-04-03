@@ -1,9 +1,9 @@
-export interface I_ProductDetails{
+export interface I_ProductDetails {
     id: number
+    slug?: string
+    image: string
+    price: number
+    priceDiscounted?: number
     title: string
     description: string
-    category: string
-    price: number
-    discountPercentage: number
-    images: string
 }

@@ -1,22 +1,25 @@
-import {Suspense} from "react";
+import React, {Suspense} from "react";
 import PublicRoutes from 'routes/PublicRoutes'
 import PrivateRoutes from 'routes/PrivateRoutes'
 import Header from "./features/Header";
-import {AppStyles, Footer} from "./App.styled";
+import {AppStyles, Footer, MainWrapper} from "./App.styled";
 
 export const App =() =>{
-    return <>
-        <AppStyles />
-        <Header />
-        <Suspense fallback={'Loading...'}>
-            <PublicRoutes/>
-            <PrivateRoutes/>
-        </Suspense>
+    return (
+        <MainWrapper>
+            <AppStyles />
+            <Header />
+            <Suspense fallback={'Loading...'}>
+                <PublicRoutes/>
+                <PrivateRoutes/>
+            </Suspense>
 
-        <Footer>
-            <div> маркетплейс MW</div>
-        </Footer>
-    </>
+            <Footer>
+                <div> маркетплейс MW</div>
+            </Footer>
+        </MainWrapper>
+
+        )
 }
 
 export default App
