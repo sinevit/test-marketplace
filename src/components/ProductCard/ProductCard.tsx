@@ -8,9 +8,8 @@ import {
     PriceRegular,
     PriceRegularWhenDiscounted,
     PriceWrapper,
-    Title
+    Title, Wrapper
 } from './styled'
-import {Wrapper} from "../../features/Header/styled";
 import {ReactComponent as HeartEmpty} from 'img/heart-empty.svg'
 import {Link} from "react-router-dom";
 import Button from "../Button";
@@ -18,11 +17,11 @@ import Button from "../Button";
 interface I_ProductCardProps {
     id: number
     slug?: string
-    image: string
+    imgSrc: string
     price: number
     priceDiscounted?: number
     title: string
-    description: string
+    desc: string
     isLiked: boolean
     hideLikes?: boolean
 }
@@ -31,14 +30,16 @@ interface I_ProductCardProps {
 const ProductCard: React.FC<I_ProductCardProps> = ({
                                                        id,
                                                        slug,
-                                                       image,
+                                                       imgSrc,
                                                        price,
                                                        priceDiscounted,
                                                        title,
-                                                       description,
+                                                       desc,
                                                        isLiked,
                                                        hideLikes = false,
                                                    }) => {
+    console.log('title',title)
+    console.log('desc',desc)
     // const dispatch = useAppDispatch()
     // const location = useLocation()
     //
@@ -74,11 +75,12 @@ const ProductCard: React.FC<I_ProductCardProps> = ({
                     // onClick={handleFavorites}
                 >
                     {/*{isLiked ? <HeartFilled /> : <HeartEmpty />}*/}
+                    <HeartEmpty />
                 </LikeWrapper>
             )}
 
             <Link to={`/product/${slug || id}`}>
-                <Image src={`${process.env.REACT_APP_API_URL}/images/products/${image}`} />
+                <Image src={imgSrc} />
             </Link>
 
             <PriceWrapper>
@@ -96,7 +98,7 @@ const ProductCard: React.FC<I_ProductCardProps> = ({
                 </Link>
             </Title>
 
-            <Desc>{description}</Desc>
+            <Desc>{desc}</Desc>
 
             <BtnsWrapper>
                 <Button block>

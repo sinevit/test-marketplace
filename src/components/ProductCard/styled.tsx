@@ -60,6 +60,7 @@ export const PriceDiscounted = styled.div`
 
 export const Title = styled.h3`
     margin-bottom: 5px;
+    color: ${colors.primary};
 `
 
 export const Desc = styled.div`
